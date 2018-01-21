@@ -3,11 +3,15 @@
       actionBarHidden="true"
       loaded="loaded"
       class="login-container">
-    <GridLayout>
+    <GridLayout class="login-inner-container">
         <StackLayout orientation="vertical"
                      horizontalAlignment="stretch"
                      verticalAlignment="center"
                      class="form-container">
+            <Image src="res://logo"
+                   stretch="none"
+                   class="logo-image"
+                   horizontalAlignment="center" />
             <TextField text="{{ email }}"
                        hint="Email Address"
                        keyboardType="email"
@@ -19,7 +23,7 @@
                        hint="Password"
                        class="input-text-field"/>
             <Button text="Sign in"
-                    tap="signIn" 
+                    tap="signIn"
                     class="navigation-button"/>
         </StackLayout>
         <ActivityIndicator busy="{{isAuthenticating}}"

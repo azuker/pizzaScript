@@ -17,7 +17,3 @@ exports.signIn = function (args) {
             // frameModule.topmost().navigate("views/list/list");
         });
 };
-
-exports.onButtonTapped = function (args) {
-    console.log('button tapped');
-}

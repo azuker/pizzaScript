@@ -11,13 +11,26 @@
     background-image: url("res://pizza_kitchen");
 }
 
+.login-inner-container{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-container{
+    margin-top: 100;
+}
+
+.logo-image{
+    margin-bottom: 20;
+}
+
 .navigation-button{
     border-radius: 10;
-    border-color: rgb(168, 53, 53);
-    border-width: 2;
-    color: rgb(90, 7, 7);
+    border-color: rgb(201, 7, 7);
+    border-width: 4;
+    color: rgb(179, 8, 8);
     background-color: white;
     margin: 10;
+    margin-top: 20;
 }
 
 .input-text-field{
