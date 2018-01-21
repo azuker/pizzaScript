@@ -1,0 +1,29 @@
+.pizzaLogo{
+    width: 150;
+    height: 150;
+    margin-bottom: 30;
+}
+
+.login-container{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("res://pizza_kitchen");
+}
+
+.navigation-button{
+    border-radius: 10;
+    border-color: rgb(168, 53, 53);
+    border-width: 2;
+    color: rgb(90, 7, 7);
+    background-color: white;
+    margin: 10;
+}
+
+.input-text-field{
+    background-color: white;
+    border-radius: 10;
+    margin: 10;
+    padding-right: 15;
+    padding-left: 15;
+}

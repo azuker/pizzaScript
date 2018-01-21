@@ -14,7 +14,7 @@ exports.signIn = function (args) {
     vm.login()
         .then(function () {
             vm.set("isAuthenticating", false);
-            frameModule.topmost().navigate("views/list/list");
+            // frameModule.topmost().navigate("views/list/list");
         });
 };
 

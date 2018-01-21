@@ -1,0 +1,29 @@
+<Page class="page"
+      xmlns="http://schemas.nativescript.org/tns.xsd"
+      actionBarHidden="true"
+      loaded="loaded"
+      class="login-container">
+    <GridLayout>
+        <StackLayout orientation="vertical"
+                     horizontalAlignment="stretch"
+                     verticalAlignment="center"
+                     class="form-container">
+            <TextField text="{{ email }}"
+                       hint="Email Address"
+                       keyboardType="email"
+                       autocorrect="false"
+                       autocapitalizationType="none"
+                       class="input-text-field"/>
+            <TextField secure="true"
+                       text="{{ password }}"
+                       hint="Password"
+                       class="input-text-field"/>
+            <Button text="Sign in"
+                    tap="signIn" 
+                    class="navigation-button"/>
+        </StackLayout>
+        <ActivityIndicator busy="{{isAuthenticating}}"
+                           horizontalAlignment="center"
+                           verticalAlignment="center"/>
+    </GridLayout>
+</Page>
