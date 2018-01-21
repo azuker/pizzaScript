@@ -1,0 +1,17 @@
+<Page class="page"
+      xmlns="http://schemas.nativescript.org/tns.xsd"
+      actionBarHidden="true"
+      loaded="loaded">
+    <GridLayout>
+        <StackLayout orientation="vertical" horizontalAlignment="stretch">
+            <Image src="res://logo" stretch="none" horizontalAlignment="center" />
+            <TextField text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+            <TextField secure="true" text="{{ password }}" hint="Password" />
+            <Button text="Sign in" tap="signIn" />
+                    <Button text="Start Here"
+                class="navigationButton"
+                onTap="onButtonTapped"/>
+        </StackLayout>
+        <ActivityIndicator busy="{{isAuthenticating}}" horizontalAlignment="center" verticalAlignment="center"/>
+    </GridLayout>
+</Page>
