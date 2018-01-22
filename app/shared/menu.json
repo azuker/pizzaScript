@@ -5,10 +5,10 @@
         {"name": "XXL", "price": 30, "displaySize": 100, "index": 2}
     ],
     "toppings": [
-        {"name": "mushroom", "price": 5, "image": "mushroom"},
-        {"name": "extraCheese", "price": 5, "image": "cheese"},
-        {"name": "tomato", "price": 5, "image": "tomato"},
-        {"name": "pepperoni", "price": 5, "image": "pepperoni"}
+        {"name": "mushroom", "price": 5, "image": "res://mushroom"},
+        {"name": "extraCheese", "price": 5, "image": "res://cheese"},
+        {"name": "tomato", "price": 5, "image": "res://tomato"},
+        {"name": "pepperoni", "price": 5, "image": "res://sausage"}
     ],
     "extras": [
         {"name": "Soda", "price": 2},
