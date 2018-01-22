@@ -2,7 +2,7 @@
       actionBarHidden="true"
       loaded="loaded"
       class="login-container">
-    <GridLayout class="login-inner-container">
+    <GridLayout>
         <StackLayout orientation="vertical"
                      horizontalAlignment="stretch"
                      verticalAlignment="center"
@@ -11,7 +11,6 @@
                    stretch="none"
                    class="logo-image"
                    horizontalAlignment="center" />
-                   <!-- https://discourse.nativescript.org/t/dismiss-keyboard-when-tapping-out-of-searchbar-textfield/569 -->
             <TextField text="{{ username }}"
                        hint="Username"
                        autocorrect="false"

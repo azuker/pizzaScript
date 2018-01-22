@@ -14,3 +14,9 @@ exports.navigatingTo = function (args) {
     vm = new OrderViewModel(context.username);
     vm.initializeItems();
 }
+
+exports.sizeTapped = function (args) {
+    let chosenSize = args.view.bindingContext;
+    console.log(chosenSize.name);
+    vm.selectSize(chosenSize);
+}

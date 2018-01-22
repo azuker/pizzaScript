@@ -4,29 +4,40 @@
       loaded="loaded"
       navigatingTo="navigatingTo"
       class="order-view-page">
-    <GridLayout rows="auto, *, auto">
-        <Label text="{{'Hi ' + username + '!'}}" row="0" class="order-label order-label-greeting"/>
+    <GridLayout rows="auto, *, auto, auto" class="order-page-overlay">
+        <Label text="{{'Hi ' + username + '!'}}" row="0" class="order-label-greeting order-label"/>
         <StackLayout row="1">
+            <Label text="Choose Size:" class="order-label"/>
             <Repeater items="{{ sizes }}"
-                      itemTap="onSelectSize" >
+                      itemTap="onSelectSize">
                 <Repeater.itemsLayout>
-                    <WrapLayout class="sizes-stack-layout" />
+                    <GridLayout columns="*,*,*"
+                                verticalAlignment="top"
+                                class="sizes-stack-layout" />
                 </Repeater.itemsLayout>
                 <Repeater.itemTemplate>
-                    <StackLayout class="sizes-item-wrapper" verticalAlignment="bottom" >
-                        <Image stretch="aspectFit" src="res://pizza_circle" height="{{displaySize}}" width="{{displaySize}}" />
-                        <Label text="{{ name }}" class="sizes-text-description"/>
-                        <ContentView class="{{isSelected? size-marker-selected : size-marker-unselected}}"/>
-                        <Label text="{{ price }}" class="sizes-price-tag price-tag"/>
+                    <StackLayout class="sizes-item-wrapper" verticalAlignment="bottom" tap="sizeTapped" col="{{index}}">
+                        <ContentView class="pizza-image-container"
+                                     height="{{displaySize}}"
+                                     width="{{displaySize}}">
+                            <Label text="{{ price + '#'}}"
+                                   class="sizes-price-tag price-tag"
+                                   horizontalAlignment="center"
+                                   verticalAlignment="top"/>
+                        </ContentView>
+                        <Label text="{{ name }}" class="sizes-text-description" />
+                        <Label class="{{isSelected? 'size-marker-selected' : 'size-marker-unselected'}}"/>
                     </StackLayout>
                 </Repeater.itemTemplate>
             </Repeater>
+            <Label text="Choose Toppings:" class="order-label"/>
             <ListView items="{{ toppings }}"
                       itemTap="onSelectTopping">
                 <ListView.itemTemplate>
                     <Label text="{{ name }}"/>
                 </ListView.itemTemplate>
             </ListView>
+            <Label text="Choose Extras:" class="order-label"/>
             <ListView items="{{ extras }}"
                       itemTap="onSelectExtra">
                 <ListView.itemTemplate>
@@ -35,6 +46,6 @@
             </ListView>
         </StackLayout>
         <Label text="{{orderTotal}}" row="2"/>
-
+        <Button text="place order" row="3" tap="placeOrder"/>
     </GridLayout>
 </Page>

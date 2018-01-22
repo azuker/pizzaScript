@@ -1,8 +1,8 @@
 {
     "sizes": [
-        {"name": "L", "price": 10, "displaySize": 70},
-        {"name": "XL", "price": 20, "displaySize": 85},
-        {"name": "XXL", "price": 30, "displaySize": 100}
+        {"name": "L", "price": 10, "displaySize": 70, "index": 0},
+        {"name": "XL", "price": 20, "displaySize": 85, "index": 1},
+        {"name": "XXL", "price": 30, "displaySize": 100, "index": 2}
     ],
     "toppings": [
         {"name": "mushroom", "price": 5, "image": "mushroom"},
@@ -12,7 +12,7 @@
     ],
     "extras": [
         {"name": "Soda", "price": 2},
-        {"name": "Cheese Sticks", "price": 3},
-        {"name": "Dessert", "price": 5}
+        {"name": "Pickles", "price": 3},
+        {"name": "Ice Scream", "price": 5}
     ]
 }

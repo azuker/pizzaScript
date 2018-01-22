@@ -4,14 +4,19 @@
     background-size: cover;
     background-image: url("res://pizza_board");
 }
-
-.sizes-stack-layout{
-    background-color: pink;
+.pizza-image-container{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("res://pizza_circle");
+}
+.order-page-overlay{
+    background-color: rgba(217, 220, 252, 0.8);
+    padding: 20;
 }
 
 .sizes-item-wrapper{
-    margin-right: 30;
-    position: relative;
+    /* margin-right: 20; */
 }
 
 .sizes-text-description{
@@ -21,25 +26,39 @@
 }
 
 .sizes-price-tag{
-    position: absolute;
     top: 0;
     right: 0;
 } 
 .price-tag{
-    background-color: rgb(61, 94, 240);
+    background-color: rgba(3, 187, 58, 0.9);
     color: white;
     font-size: 20;
-    border-radius: 20;
+    border-radius: 50%;
+    margin-left: 25;
+    
 }
 
 .size-marker-selected{
-
+    height: 5;
+    margin: 5;
+    background-color: green;
 }
-.size-marker-unselected{
 
+.size-marker-unselected{
+    height: 5;
+    margin: 5;
+    /* background-color: rgb(141, 3, 141); */
+}
+
+.order-label{
+    font-size: 20;
+    color: rgb(0, 77, 23);
+    margin-top:10;
 }
 
 .order-label-greeting{
-    font-size: 30;
-    color: red;
+    font-size: 25;
+    font-weight: bold;
+    color: black;
+
 }
