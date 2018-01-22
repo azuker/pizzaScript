@@ -1,0 +1,45 @@
+.order-view-page{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("res://pizza_board");
+}
+
+.sizes-stack-layout{
+    background-color: pink;
+}
+
+.sizes-item-wrapper{
+    margin-right: 30;
+    position: relative;
+}
+
+.sizes-text-description{
+    font-size: 20;
+    color: black;
+    text-align: center;
+}
+
+.sizes-price-tag{
+    position: absolute;
+    top: 0;
+    right: 0;
+} 
+.price-tag{
+    background-color: rgb(61, 94, 240);
+    color: white;
+    font-size: 20;
+    border-radius: 20;
+}
+
+.size-marker-selected{
+
+}
+.size-marker-unselected{
+
+}
+
+.order-label-greeting{
+    font-size: 30;
+    color: red;
+}

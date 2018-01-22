@@ -8,12 +8,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url("res://pizza_kitchen");
+    background-image: url("res://pizza_board");
 }
 
-.login-inner-container{
+/* .login-inner-container{
     background-color: rgba(255, 255, 255, 0.1);
-}
+} */
 
 .form-container{
     margin-top: 100;
@@ -25,9 +25,9 @@
 
 .navigation-button{
     border-radius: 10;
-    border-color: rgb(201, 7, 7);
-    border-width: 4;
-    color: rgb(179, 8, 8);
+    border-color: rgb(201, 46, 3);
+    border-width: 3;
+    color:#FF3700;
     background-color: white;
     margin: 10;
     margin-top: 20;

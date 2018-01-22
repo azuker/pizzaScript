@@ -1,0 +1,18 @@
+{
+    "sizes": [
+        {"name": "L", "price": 10, "displaySize": 70},
+        {"name": "XL", "price": 20, "displaySize": 85},
+        {"name": "XXL", "price": 30, "displaySize": 100}
+    ],
+    "toppings": [
+        {"name": "mushroom", "price": 5, "image": "mushroom"},
+        {"name": "extraCheese", "price": 5, "image": "cheese"},
+        {"name": "tomato", "price": 5, "image": "tomato"},
+        {"name": "pepperoni", "price": 5, "image": "pepperoni"}
+    ],
+    "extras": [
+        {"name": "Soda", "price": 2},
+        {"name": "Cheese Sticks", "price": 3},
+        {"name": "Dessert", "price": 5}
+    ]
+}

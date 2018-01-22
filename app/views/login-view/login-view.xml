@@ -1,5 +1,4 @@
-<Page class="page"
-      xmlns="http://schemas.nativescript.org/tns.xsd"
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
       actionBarHidden="true"
       loaded="loaded"
       class="login-container">
@@ -12,16 +11,18 @@
                    stretch="none"
                    class="logo-image"
                    horizontalAlignment="center" />
-            <TextField text="{{ email }}"
-                       hint="Email Address"
-                       keyboardType="email"
+                   <!-- https://discourse.nativescript.org/t/dismiss-keyboard-when-tapping-out-of-searchbar-textfield/569 -->
+            <TextField text="{{ username }}"
+                       hint="Username"
                        autocorrect="false"
                        autocapitalizationType="none"
-                       class="input-text-field"/>
+                       class="input-text-field"
+                       id="textInput1"/>
             <TextField secure="true"
                        text="{{ password }}"
                        hint="Password"
-                       class="input-text-field"/>
+                       class="input-text-field"
+                       id="textInput2"/>
             <Button text="Sign in"
                     tap="signIn"
                     class="navigation-button"/>

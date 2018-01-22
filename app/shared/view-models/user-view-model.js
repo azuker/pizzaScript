@@ -1,12 +1,12 @@
-var observableModule = require("data/observable");
+const observableModule = require("data/observable");
 
 function UserViewModel() {
 
-    var viewModel = new observableModule.Observable();
+    let viewModel = new observableModule.Observable();
 
     viewModel.login = function () {
         return new Promise(resolve =>
-            setTimeout(resolve, 2000));
+            setTimeout(resolve, 200));
     };
 
     return viewModel;
