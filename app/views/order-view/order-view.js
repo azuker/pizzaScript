@@ -1,7 +1,6 @@
 const frameModule = require("ui/frame");
 const OrderViewModel = require("../../shared/view-models/order-view-model");
-// const dialogsModule = require("ui/dialogs");
-// const frameModule = require("ui/frame");
+const dialogsModule = require("ui/dialogs");
 
 let vm;
 
@@ -34,25 +33,23 @@ exports.substractExtra = function (args) {
     vm.updateExtra(substractedExtra, -1);
 }
 
-// exports.placeOrder = function () {
-//     dialogs.confirm({
-//         title: "Order Placed",
-//         message: "Are you sure you want to place this order? an amount of " + vm.orderTotal + "$ will be substracted from your credit.",
-//         okButtonText: "Yes! I'm hungry!",
-//         cancelButtonText: "Cancel",
-//     }).then(function (result) {
-//         if (result) {
-//             let topmost = frameModule.topmost();
-//             topmost.navigate({
-//                 moduleName: "views/summary-view/summary-view",
-//                 clearHistory: true,
-//                 transition: {
-//                     name: "slide",
-//                     duration: 350,
-//                     curve: "easeIn"
-//                 }
-//             });
-//         }
-//     });
-
-// }
+exports.placeOrder = function () {
+    dialogsModule.confirm({
+        message: "Are you sure you want to place this order? an amount of " + vm.orderTotal + "$ will be substracted from your credit.",
+        okButtonText: "Yes! I'm hungry!",
+        cancelButtonText: "Cancel",
+    }).then(function (result) {
+        if (result) {
+            let topmost = frameModule.topmost();
+            topmost.navigate({
+                moduleName: "views/summary-view/summary-view",
+                clearHistory: true,
+                transition: {
+                    name: "slide",
+                    duration: 350,
+                    curve: "easeIn"
+                }
+            });
+        }
+    });
+}

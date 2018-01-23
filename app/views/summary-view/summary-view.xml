@@ -1,0 +1,25 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      actionBarHidden="true"
+      loaded="loaded"
+      class="page-container">
+    <StackLayout verticalAlignment="center">
+        <Image src="res://logo"
+               stretch="aspectFit"
+               class="logo-image logo-image-summary"
+               horizontalAlignment="center" />
+
+        <Label class="thankYou-label"
+               textWrap="true">
+            <FormattedString>
+                <Span text="Thank you for your order.&#xa;" fontWeight="Bold"/>
+                <Span text="It will arrive shortly in" />
+                <Span text="&#xa;" />
+                <Span text="{{city}}" />
+                <Span text="&#xa;" />
+                <Span text="{{region_name}}" />
+                <Span text="&#xa;" />
+                <Span text="{{country_name}}" />
+            </FormattedString>
+        </Label>
+    </StackLayout>
+</Page>

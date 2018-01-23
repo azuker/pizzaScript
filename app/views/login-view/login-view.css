@@ -4,20 +4,11 @@
     margin-bottom: 30;
 }
 
-.login-container{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url("res://pizza_board");
-}
-
 .form-container{
     margin-top: 100;
 }
 
-.logo-image{
-    margin-bottom: 20;
-}
+
 
 .login-button{
     margin: 10;

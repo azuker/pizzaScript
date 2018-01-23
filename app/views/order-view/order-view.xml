@@ -3,7 +3,7 @@
       actionBarHidden="true"
       loaded="loaded"
       navigatingTo="navigatingTo"
-      class="order-view-page">
+      class="page-container">
     <GridLayout rows="auto, *, 10, auto, 10, auto" class="order-page-overlay">
         <Label text="{{'Hi ' + username + '!'}}" row="0" class="order-label-greeting"/>
         <ScrollView row="1">

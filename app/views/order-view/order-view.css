@@ -1,9 +1,3 @@
-.order-view-page{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url("res://pizza_board");
-}
 
 .order-page-overlay{
     background-color: rgba(217, 220, 252, 0.8);
