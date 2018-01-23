@@ -24,7 +24,7 @@
                        id="textInput2"/>
             <Button text="Sign in"
                     tap="signIn"
-                    class="navigation-button"/>
+                    class="navigation-button login-button"/>
         </StackLayout>
         <ActivityIndicator busy="{{isAuthenticating}}"
                            horizontalAlignment="center"

@@ -12,6 +12,14 @@ components that have the btn class name.
     font-size: 18;
 }
 
+.navigation-button{
+    border-radius: 10;
+    border-color: rgb(201, 46, 3);
+    border-width: 3;
+    color:#FF3700;
+    background-color: white;
+
+}
 /*
 In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme

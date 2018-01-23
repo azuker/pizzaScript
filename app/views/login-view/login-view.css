@@ -19,16 +19,10 @@
     margin-bottom: 20;
 }
 
-.navigation-button{
-    border-radius: 10;
-    border-color: rgb(201, 46, 3);
-    border-width: 3;
-    color:#FF3700;
-    background-color: white;
+.login-button{
     margin: 10;
     margin-top: 20;
 }
-
 .input-text-field{
     background-color: white;
     border-radius: 10;

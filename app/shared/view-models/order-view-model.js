@@ -11,9 +11,16 @@ function OrderViewModel(username) {
 
     viewModel.initializeItems = function () {
         let sizes = new ObservableArray(menu.sizes);
-        let toppings = menu.toppings;
-        let extras = menu.extras;
-
+        let toppings = new ObservableArray(menu.toppings);
+        let extras = [];
+        for (let i = 0; i < menu.extras.length; i++) {
+            let extra = new observableModule.fromObject({
+                name: menu.extras[i].name,
+                price: menu.extras[i].price,
+                quantity: 0
+            })
+            extras.push(extra);
+        }
 
         viewModel.set("sizes", sizes);
         viewModel.set("toppings", toppings);
@@ -34,7 +41,36 @@ function OrderViewModel(username) {
         orderTotal = orderTotal + chosenSize.price;
         viewModel.orderTotal = orderTotal;
     }
-    return viewModel;
+
+    viewModel.toggleTopping = function (tappedTopping) {
+        let orderTotal = viewModel.orderTotal;
+        let toppings = viewModel.get("toppings");
+        for (let i = 0; i < toppings.length; i++) {
+            let currentTopping = toppings.getItem(i);
+            if (currentTopping === tappedTopping) {
+                currentTopping.isSelected = !currentTopping.isSelected;
+                orderTotal = currentTopping.isSelected ? orderTotal + currentTopping.price : orderTotal - currentTopping.price;
+                viewModel.orderTotal = orderTotal;
+                toppings.setItem(i, currentTopping);
+                return;
+            }
+        }
+    }
+
+    viewModel.updateExtra = function (updatedExtra, amount) {
+        let orderTotal = viewModel.orderTotal;
+        let extras = viewModel.get("extras");
+        let currentExtra = extras.find(ex => ex === updatedExtra);
+        currentExtra.quantity = currentExtra.quantity + amount;
+        if (currentExtra.quantity < 0) {
+            currentExtra.quantity = 0;
+            return
+        }
+        orderTotal = orderTotal + currentExtra.price * amount;
+        viewModel.orderTotal = orderTotal;
+    }
+
+return viewModel;
 }
 
 module.exports = OrderViewModel;

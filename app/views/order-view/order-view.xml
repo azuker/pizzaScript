@@ -4,11 +4,11 @@
       loaded="loaded"
       navigatingTo="navigatingTo"
       class="order-view-page">
-    <GridLayout rows="auto, *, auto, auto" class="order-page-overlay">
-        <Label text="{{'Hi ' + username + '!'}}" row="0" class="order-label-greeting order-label"/>
-        <ScrollView row="1" class="scroll-view">
+    <GridLayout rows="auto, *, 10, auto, 10, auto" class="order-page-overlay">
+        <Label text="{{'Hi ' + username + '!'}}" row="0" class="order-label-greeting"/>
+        <ScrollView row="1">
             <StackLayout row="1">
-                <Label text="Choose Size:" class="order-label"/>
+                <Label text="Choose Size:" class="order-group-label choose-size-label"/>
                 <Repeater items="{{ sizes }}"
                           itemTap="onSelectSize">
                     <Repeater.itemsLayout>
@@ -17,37 +17,56 @@
                                     class="sizes-stack-layout" />
                     </Repeater.itemsLayout>
                     <Repeater.itemTemplate>
-                        <StackLayout class="sizes-item-wrapper" verticalAlignment="bottom" tap="sizeTapped" col="{{index}}">
-                            <ContentView class="pizza-image-container"
-                                         height="{{displaySize}}"
-                                         width="{{displaySize}}">
-                                <Label text="{{ price + '$'}}"
-                                       class="sizes-price-tag price-tag"
-                                       horizontalAlignment="center"
-                                       verticalAlignment="top"/>
-                            </ContentView>
-                            <Label text="{{ name }}" class="sizes-text-description" />
-                            <Label class="{{isSelected? 'size-marker-selected' : 'size-marker-unselected'}}"/>
+                        <StackLayout verticalAlignment="bottom" col="{{index}}" tap="sizeTapped">
+                            <Image class="{{isSelected? 'pizza-image-selected' : 'pizza-image-unselected'}}"
+                                   src="res://pizza_circle"
+                                   height="{{displaySize}}"
+                                   width="{{displaySize}}"/>
+                            <Label class="sizes-text-description text-description">
+                                <FormattedString>
+                                    <Span text="{{ name }}" fontWeight="Bold"/>
+                                    <Span text="{{'   '+ price+'$'}}"/>
+                                </FormattedString>
+                            </Label>
                         </StackLayout>
                     </Repeater.itemTemplate>
                 </Repeater>
-                <Label text="Choose Toppings:" class="order-label"/>
-                <ListView items="{{ toppings }}"
-                          itemTap="onSelectTopping">
-                    <ListView.itemTemplate>
-                        <Image src="{{image}}" class="topping-image" stretch="aspectFit"/>
-                    </ListView.itemTemplate>
-                </ListView>
-                <Label text="Choose Extras:" class="order-label"/>
-                <ListView items="{{ extras }}"
-                          itemTap="onSelectExtra">
-                    <ListView.itemTemplate>
-                        <Label text="{{ name }}"/>
-                    </ListView.itemTemplate>
-                </ListView>
+                <Label text="Choose Toppings:" class="order-group-label"/>
+                <Repeater items="{{ toppings }}">
+                    <Repeater.itemsLayout>
+                        <StackLayout orientation="horizontal" />
+                    </Repeater.itemsLayout>
+
+                    <Repeater.itemTemplate>
+                        <StackLayout class="topping-item-container">
+                            <Image src="{{image}}" class="{{isSelected? 'topping-image-selected' : 'topping-image'}}" stretch="aspectFit" tap="toppingTapped"/>
+                            <Label text="{{ price + '$'}}" class="toppings-text-description text-description"/>
+                        </StackLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+                <Label text="Choose Extras:" class="order-group-label"/>
+                <Repeater items="{{ extras }}"
+                          itemTap="onSelectExtra"
+                          verticalAlignment="stretch">
+                    <Repeater.itemTemplate>
+                        <GridLayout columns="110, 10, auto, 10, auto, *,20, auto, 20, auto" horizontalAlignment="stretch">
+                            <Label text="{{ name }}" class="text-description" verticalAlignment="center"/>
+                            <Label text="{{ price + '$' }}" col="2" class="text-description" verticalAlignment="center"/>
+                            <Label text="{{'X'+ quantity }}"
+                                   col="4"
+                                   class="text-description extras-quantity-text"
+                                   verticalAlignment="center"/>
+                            <Button text="+" col="7" class="extras-button" tap="addExtra"/>
+                            <Button text="—" col="9" class="extras-button" tap="substractExtra"/>
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
             </StackLayout>
         </ScrollView>
-        <Label text="{{orderTotal}}" row="2"/>
-        <Button text="place order" row="3" tap="placeOrder"/>
+        <ContentView class="order-total-wrapper" row="3">
+            <Label text="{{'Total: ' + orderTotal + '$'}}"
+                   class="text-description order-total-text"/>
+        </ContentView>
+        <Button text="place order" row="5" tap="placeOrder" class="navigation-button"/>
     </GridLayout>
 </Page>
