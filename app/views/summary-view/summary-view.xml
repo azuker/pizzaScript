@@ -7,19 +7,15 @@
                stretch="aspectFit"
                class="logo-image logo-image-summary"
                horizontalAlignment="center" />
-
-        <Label class="thankYou-label"
-               textWrap="true">
-            <FormattedString>
-                <Span text="Thank you for your order.&#xa;" fontWeight="Bold"/>
-                <Span text="It will arrive shortly in" />
-                <Span text="&#xa;" />
-                <Span text="{{city}}" />
-                <Span text="&#xa;" />
-                <Span text="{{region_name}}" />
-                <Span text="&#xa;" />
-                <Span text="{{country_name}}" />
-            </FormattedString>
-        </Label>
+        <StackLayout class="thank-you-label-wrapper" id="thank-you-label-wrapper">
+            <Label ios:text="Thank you, iOS user"
+                   android:text="Thank you, Android user"
+                   textWrap="true"
+                   class="thank-you-label thank-you-label-header"/>
+            <Label text="Your order will soon arrive in" textWrap="true" class="thank-you-label"/>
+            <Label text="{{city}}" class="thank-you-label" visibility="{{ city ? 'visible' : 'collapsed' }}"/>
+            <Label text="{{region_name}}" class="thank-you-label" visibility="{{ region_name ? 'visible' : 'collapsed' }}"/>
+            <Label text="{{country_name}}" class="thank-you-label" visibility="{{ country_name ? 'visible' : 'collapsed' }}"/>
+        </StackLayout>
     </StackLayout>
 </Page>

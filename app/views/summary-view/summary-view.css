@@ -1,8 +1,13 @@
-.thankYou-label{
-    background-color: rgba(255, 255, 255, 0.561);
-    border-radius: 5;
-    color:#FF3700;
+.thank-you-label{
     font-size: 22;
+    text-align: center;
+}
+
+.thank-you-label-wrapper{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5;
+    margin: 20;
+    padding: 10;
 }
 
 .logo-image-summary{
