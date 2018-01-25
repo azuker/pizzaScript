@@ -6,7 +6,7 @@ function UserViewModel() {
 
     viewModel.login = function () {
         return new Promise(resolve =>
-            setTimeout(resolve, 200));
+            setTimeout(resolve, 1000));
     };
 
     return viewModel;

@@ -1,6 +1,7 @@
 const frameModule = require("ui/frame");
 const OrderViewModel = require("../../shared/view-models/order-view-model");
 const dialogsModule = require("ui/dialogs");
+const application = require('application');
 
 let vm;
 
@@ -33,7 +34,7 @@ exports.substractExtra = function (args) {
     vm.updateExtra(substractedExtra, -1);
 }
 
-exports.placeOrder = function () {
+confirmAndNavigate = function () {
     dialogsModule.confirm({
         message: "Are you sure you want to place this order? an amount of " + vm.orderTotal + "$ will be substracted from your credit.",
         okButtonText: "Yes! I'm hungry!",
@@ -51,4 +52,47 @@ exports.placeOrder = function () {
             });
         }
     });
+}
+
+alertEmptyOrderNatively = function () {
+    const alertTitle = "Your order is empty";
+    const alertMessage = "You must add at least one item if you wish to place an order";
+    const buttonText = "OK"
+    if (application.ios) {
+        dialogsModule.alert({
+            message: alertMessage,
+            title: alertTitle,
+            okButtonText: buttonText,
+        });
+    }
+    // the following block of code was not verified; 
+    //also - UIAlertView is relevant up to ios 8, afterwards it's deprecated and UIAlertController should be used
+    // const alertView = new UIAlertView();
+    // alertView.title = alertTitle;
+    // alertView.message = alertMessage;
+    // alertView.addButtonWithTitle(buttonText);
+    // alertView.show();
+
+    if (application.android) {
+        const alertDialog = new android.app.AlertDialog.Builder(application.android.currentContext);
+        alertDialog.setTitle(alertTitle);
+        alertDialog.setMessage(alertMessage);
+        alertDialog.setPositiveButton(buttonText, new android.content.DialogInterface.OnClickListener({
+            onClick: function (dialog) {
+                dialog.cancel();
+            }
+        }));
+        alertDialog.show();
+    }
+}
+
+exports.placeOrder = function () {
+    let orderTotal = vm.orderTotal;
+    console.log(orderTotal);
+    if (orderTotal > 0) {
+        confirmAndNavigate();
+    }
+    else {
+        alertEmptyOrderNatively();
+    }
 }
