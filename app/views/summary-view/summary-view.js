@@ -1,5 +1,6 @@
 const frameModule = require("ui/frame");
 const httpModule = require("http");
+var application = require('application');
 
 exports.loaded = function (args) {
     httpModule.getJSON("http://freegeoip.net/json/")
@@ -20,10 +21,23 @@ exports.loaded = function (args) {
         });
 
     const page = args.object;
-    const stackLayout = page.getViewById("thank-you-label-wrapper");
-    stackLayout.opacity = 0;
-    stackLayout.animate({
-        opacity: 1,
-        duration: 1000
-    })
+    const stackLayout = page.getViewById("info-label-wrapper");
+    if (stackLayout) {
+        if (application.android) {
+            stackLayout.opacity = 0;
+            stackLayout.scaleY = 0
+            stackLayout.animate({
+                opacity: 1,
+                scale: {x: 1, y: 1},
+                duration: 1500
+            })
+        }
+        if (application.ios) {
+            stackLayout.translateX = -400;
+            stackLayout.animate({
+                translate: { x: 0, y: 0 },
+                duration: 1500
+            })
+        }
+    }
 }

@@ -1,9 +1,9 @@
-.thank-you-label{
+label{
     font-size: 22;
     text-align: center;
 }
 
-.thank-you-label-wrapper{
+.label-wrapper{
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5;
     margin: 20;

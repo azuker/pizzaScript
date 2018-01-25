@@ -7,15 +7,27 @@
                stretch="aspectFit"
                class="logo-image logo-image-summary"
                horizontalAlignment="center" />
-        <StackLayout class="thank-you-label-wrapper" id="thank-you-label-wrapper">
-            <Label ios:text="Thank you, iOS user"
-                   android:text="Thank you, Android user"
-                   textWrap="true"
-                   class="thank-you-label thank-you-label-header"/>
-            <Label text="Your order will soon arrive in" textWrap="true" class="thank-you-label"/>
-            <Label text="{{city}}" class="thank-you-label" visibility="{{ city ? 'visible' : 'collapsed' }}"/>
-            <Label text="{{region_name}}" class="thank-you-label" visibility="{{ region_name ? 'visible' : 'collapsed' }}"/>
-            <Label text="{{country_name}}" class="thank-you-label" visibility="{{ country_name ? 'visible' : 'collapsed' }}"/>
+        <StackLayout class="label-wrapper">
+            <Label text="Thank you for your order." textWrap="true" class="thank-you-label-header"/>
+            <Label text="It will arrive soon in" textWrap="true"/>
+            <Label text="{{city}}" visibility="{{ city ? 'visible' : 'collapsed' }}"/>
+            <Label text="{{region_name}}" visibility="{{ region_name ? 'visible' : 'collapsed' }}"/>
+            <Label text="{{country_name}}" visibility="{{ country_name ? 'visible' : 'collapsed' }}"/>
+        </StackLayout>
+        <StackLayout class="label-wrapper" id="info-label-wrapper">
+            <Label textWrap="true">
+                <FormattedString>
+                    <Span text="Did you know? As an "/>
+                    <Span ios:text="iOS" android:text="android"/>
+                    <Span text=" user, "/>
+                    <android>
+                        <Span text="you're 12% more likely than an iOS user to be an introvert." />
+                    </android>
+                    <ios>
+                        <Span text="you're 39% more likely than an Android user to say you're high-maintenance."/>
+                    </ios>
+                </FormattedString>
+            </Label>
         </StackLayout>
     </StackLayout>
 </Page>
