@@ -43,10 +43,11 @@
                     </Repeater.itemTemplate>
                 </Repeater>
                 <Label text="Choose Extras:" class="order-group-label"/>
-                <Repeater items="{{ extras }}"
-                          itemTap="onSelectExtra"
+                <ListView items="{{ extras }}"
+                          height="121*extras.length"
+                          separatorColor="transparent"
                           verticalAlignment="stretch">
-                    <Repeater.itemTemplate>
+                    <ListView.itemTemplate>
                         <GridLayout columns="110, 10, auto, 10, auto, *,20, auto, 20, auto" horizontalAlignment="stretch">
                             <Label text="{{ name }}" class="text-description" verticalAlignment="center"/>
                             <Label text="{{ price + '$' }}" col="2" class="text-description" verticalAlignment="center"/>
@@ -57,8 +58,8 @@
                             <Button text="+" col="7" class="extras-button" tap="addExtra"/>
                             <Button text="—" col="9" class="extras-button" tap="substractExtra"/>
                         </GridLayout>
-                    </Repeater.itemTemplate>
-                </Repeater>
+                    </ListView.itemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
         <ContentView class="order-total-wrapper" row="3">

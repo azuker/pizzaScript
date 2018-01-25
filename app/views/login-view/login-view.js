@@ -27,6 +27,7 @@ exports.signIn = function (args) {
             topmost.navigate({
                 moduleName: "views/order-view/order-view",
                 context: { username: username },
+                backstackVisible: false,
                 transition: {
                     name: "slide",
                     duration: 350,

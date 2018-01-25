@@ -43,7 +43,6 @@ exports.placeOrder = function () {
             let topmost = frameModule.topmost();
             topmost.navigate({
                 moduleName: "views/summary-view/summary-view",
-                clearHistory: true,
                 transition: {
                     name: "slide",
                     duration: 350,
