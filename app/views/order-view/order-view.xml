@@ -12,12 +12,10 @@
                 <Repeater items="{{ sizes }}"
                           itemTap="onSelectSize">
                     <Repeater.itemsLayout>
-                        <GridLayout columns="*,*,*"
-                                    verticalAlignment="top"
-                                    class="sizes-stack-layout" />
+                        <FlexboxLayout flexDirection="row"/>
                     </Repeater.itemsLayout>
                     <Repeater.itemTemplate>
-                        <StackLayout verticalAlignment="bottom" col="{{index}}" tap="sizeTapped">
+                        <StackLayout verticalAlignment="bottom" tap="sizeTapped" flexGrow="1">
                             <Image class="{{isSelected? 'pizza-image-selected' : 'pizza-image-unselected'}}"
                                    src="res://pizza_circle"
                                    height="{{displaySize}}"

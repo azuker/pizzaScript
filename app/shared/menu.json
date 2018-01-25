@@ -1,8 +1,8 @@
 {
     "sizes": [
-        {"name": "L", "price": 10, "displaySize": 50, "index": 0},
-        {"name": "XL", "price": 20, "displaySize": 65, "index": 1},
-        {"name": "XXL", "price": 30, "displaySize": 80, "index": 2}
+        {"name": "L", "price": 10, "displaySize": 50},
+        {"name": "XL", "price": 20, "displaySize": 65},
+        {"name": "XXL", "price": 30, "displaySize": 80}
     ],
     "toppings": [
         {"name": "mushroom", "price": 5, "image": "res://mushroom"},
