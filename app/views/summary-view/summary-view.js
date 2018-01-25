@@ -25,7 +25,7 @@ exports.loaded = function (args) {
     if (stackLayout) {
         if (application.android) {
             stackLayout.opacity = 0;
-            stackLayout.scaleY = 0
+            stackLayout.scaleX = 0
             stackLayout.animate({
                 opacity: 1,
                 scale: {x: 1, y: 1},

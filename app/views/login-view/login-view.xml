@@ -1,4 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:logo="shared/components/logo"
       actionBarHidden="true"
       loaded="loaded"
       class="page-container">
@@ -7,10 +8,7 @@
                      horizontalAlignment="stretch"
                      verticalAlignment="center"
                      class="form-container">
-            <Image src="res://logo"
-                   stretch="none"
-                   class="logo-image"
-                   horizontalAlignment="center" />
+            <logo:logo/>
             <TextField text="{{ username }}"
                        hint="Username"
                        autocorrect="false"

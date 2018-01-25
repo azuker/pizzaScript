@@ -1,0 +1,4 @@
+<Image src="res://logo"
+       stretch="aspectFit"
+       class="logo-image"
+       horizontalAlignment="center" />

@@ -1,12 +1,10 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:logo="shared/components/logo"
       actionBarHidden="true"
       loaded="loaded"
       class="page-container">
     <StackLayout verticalAlignment="center">
-        <Image src="res://logo"
-               stretch="aspectFit"
-               class="logo-image logo-image-summary"
-               horizontalAlignment="center" />
+        <logo:logo/>
         <StackLayout class="label-wrapper">
             <Label text="Thank you for your order" textWrap="true" class="thank-you-label-header"/>
             <Label text="It will arrive soon in" textWrap="true"/>

@@ -19,8 +19,5 @@
     background-image: url("res://pizza_board");
 }
 
-.logo-image{
-    margin-bottom: 20;
-}
 
 @import '~nativescript-theme-core/css/core.light.css';
