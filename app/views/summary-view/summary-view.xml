@@ -8,7 +8,7 @@
                class="logo-image logo-image-summary"
                horizontalAlignment="center" />
         <StackLayout class="label-wrapper">
-            <Label text="Thank you for your order." textWrap="true" class="thank-you-label-header"/>
+            <Label text="Thank you for your order" textWrap="true" class="thank-you-label-header"/>
             <Label text="It will arrive soon in" textWrap="true"/>
             <Label text="{{city}}" visibility="{{ city ? 'visible' : 'collapsed' }}"/>
             <Label text="{{region_name}}" visibility="{{ region_name ? 'visible' : 'collapsed' }}"/>
@@ -27,6 +27,7 @@
                         <Span text="you're 39% more likely than an Android user to say you're high-maintenance."/>
                     </ios>
                 </FormattedString>
+                <!-- according to https://androidandme.com/2011/08/news/android-vs-ios-stereotypes-and-lifestyles/ -->
             </Label>
         </StackLayout>
     </StackLayout>
