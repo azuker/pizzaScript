@@ -1,43 +1,40 @@
-const frameModule = require("ui/frame");
-const httpModule = require("http");
-var application = require('application');
+const application = require('application');
+const SummaryViewModel = require('../../shared/view-models/summary-view-model');
 
-exports.loaded = function (args) {
-    httpModule.getJSON("http://freegeoip.net/json/")
-        .then(function (response) {
-            var ip = response.ip;
-            const page = args.object;
-            page.bindingContext = response;
-            response.country_name === "" ? response.country_name = undefined : response.country_name = response.country_name;
-            response.region_name === "" ? response.region_name = undefined : response.region_name = response.region_name;
-            response.city === "" ? response.city = undefined : response.city = response.city;
-        }, function (error) {
-            console.log(error);
-            page.bindingContext = {
-                city: undefined,
-                region_name: "your location.",
-                country_name: undefined
-            }
-        });
+let vm = new SummaryViewModel();
+animateLabel = function (label) {
+    label.animate({
+        opacity: 1,
+        duration: 1000
+    })
+}
 
-    const page = args.object;
+applyAnimations = function (page) {
     const stackLayout = page.getViewById("info-label-wrapper");
-    if (stackLayout) {
+    const infoLabel = page.getViewById("info-label");
+    if (stackLayout && infoLabel) {
+        infoLabel.opacity = 0;
         if (application.android) {
-            stackLayout.opacity = 0;
             stackLayout.scaleX = 0
             stackLayout.animate({
-                opacity: 1,
-                scale: {x: 1, y: 1},
+                scale: { x: 1, y: 1 },
                 duration: 1500
-            })
+            }).then(() => animateLabel(infoLabel))
         }
         if (application.ios) {
             stackLayout.translateX = -400;
             stackLayout.animate({
                 translate: { x: 0, y: 0 },
                 duration: 1500
-            })
+            }).then(() => animateLabel(infoLabel))
         }
     }
+
+}
+exports.loaded = function (args) {
+    const page = args.object;
+    vm.getLocation();
+    page.bindingContext = vm;
+
+    applyAnimations(page);
 }

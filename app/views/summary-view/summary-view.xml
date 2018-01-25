@@ -9,20 +9,20 @@
             <Label text="Thank you for your order" textWrap="true" class="thank-you-label-header"/>
             <Label text="It will arrive soon in" textWrap="true"/>
             <Label text="{{city}}" visibility="{{ city ? 'visible' : 'collapsed' }}"/>
-            <Label text="{{region_name}}" visibility="{{ region_name ? 'visible' : 'collapsed' }}"/>
-            <Label text="{{country_name}}" visibility="{{ country_name ? 'visible' : 'collapsed' }}"/>
+            <Label text="{{region}}" visibility="{{ region ? 'visible' : 'collapsed' }}"/>
+            <Label text="{{country}}" visibility="{{ country ? 'visible' : 'collapsed' }}"/>
         </StackLayout>
         <StackLayout class="label-wrapper" id="info-label-wrapper">
-            <Label textWrap="true">
+            <Label textWrap="true" id="info-label">
                 <FormattedString>
-                    <Span text="Did you know? As an "/>
-                    <Span ios:text="iOS" android:text="android"/>
+                    <Span text="Did you know? Compared to an "/>
+                    <Span ios:text="Android" android:text="iOS"/>
                     <Span text=" user, "/>
                     <android>
-                        <Span text="you're 71% more likely than an iOS user to have never traveled outside your native country." />
+                        <Span text="you're 12% more likely to have a pet."/>
                     </android>
                     <ios>
-                        <Span text="you're 39% more likely than an Android user to say you're high-maintenance."/>
+                        <Span text="you're 39% more likely to say you're high-maintenance."/>
                     </ios>
                 </FormattedString>
                 <!-- according to https://androidandme.com/2011/08/news/android-vs-ios-stereotypes-and-lifestyles/ -->
