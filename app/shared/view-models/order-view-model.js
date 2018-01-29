@@ -70,7 +70,40 @@ function OrderViewModel(username) {
         viewModel.orderTotal = orderTotal;
     }
 
-return viewModel;
+    viewModel.sendOrder = function () {
+        let order = { toppings: [], extras: [] };
+
+        let sizes = viewModel.get("sizes");
+        for (let i = 0; i < sizes.length; i++) {
+            let currentSize = sizes.getItem(i);
+            if (currentSize.isSelected === true) {
+                order.size = currentSize.name;
+                break;
+            }
+        }
+        let toppings = viewModel.get("toppings");
+        order.toppings = [];
+        for (let i = 0; i < toppings.length; i++) {
+            let currentTopping = toppings.getItem(i);
+            if (currentTopping.isSelected === true) {
+                order.toppings.push(currentTopping.name);
+            }
+        }
+        let extras = viewModel.get("extras");
+        for (let i = 0; i < extras.length; i++) {
+            if (extras[i].quantity > 0) {
+                let extra = {
+                    quantity: extras[i].quantity,
+                    name: extras[i].name,
+                };
+                order.extras.push(extra);
+            }
+        }
+        order.total = viewModel.orderTotal;
+        let orderJson = JSON.stringify(order);
+        //send orderJson to backend
+    }
+    return viewModel;
 }
 
 module.exports = OrderViewModel;

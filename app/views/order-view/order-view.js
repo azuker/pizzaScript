@@ -41,6 +41,7 @@ confirmAndNavigate = function () {
         cancelButtonText: "Cancel",
     }).then(function (result) {
         if (result) {
+            vm.sendOrder();
             let topmost = frameModule.topmost();
             topmost.navigate({
                 moduleName: "views/summary-view/summary-view",
@@ -88,7 +89,6 @@ alertEmptyOrderNatively = function () {
 
 exports.placeOrder = function () {
     let orderTotal = vm.orderTotal;
-    console.log(orderTotal);
     if (orderTotal > 0) {
         confirmAndNavigate();
     }

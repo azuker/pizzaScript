@@ -35,6 +35,5 @@ exports.loaded = function (args) {
     const page = args.object;
     vm.getLocation();
     page.bindingContext = vm;
-
     applyAnimations(page);
 }
