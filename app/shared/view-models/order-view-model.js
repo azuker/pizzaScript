@@ -1,9 +1,10 @@
 const observableModule = require("data/observable");
-const menu = require("../../shared/menu.json");
+const sourceMenu = require("../../shared/menu.json");
 var ObservableArray = require("data/observable-array").ObservableArray;
 
 function OrderViewModel(username) {
-
+    const menu = JSON.parse(JSON.stringify(sourceMenu));
+    
     let viewModel = new observableModule.fromObject({
         username: username ? username : 'Pizza Lover',
         orderTotal: 0
